@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  fetch("data.json")
+  fetch("./data.json")
     .then((res) => res.json())
     .then((data) => {
       console.log("JSON recebido →", data);
@@ -1144,28 +1144,35 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
 
-      const toggles = [
-      { btnId: "toggle-reels",    contentId: "content-reels",    iconId: "icon-reels"    },
-      { btnId: "toggle-ctas",     contentId: "content-ctas",     iconId: "icon-ctas"     },
-      { btnId: "toggle-salvcomp", contentId: "content-salvcomp", iconId: "icon-salvcomp" },
-      { btnId: "toggle-linguagem",contentId: "content-linguagem",iconId: "icon-linguagem"},
-      { btnId: "toggle-legendas", contentId: "content-legendas", iconId: "icon-legendas" },
-      { btnId: "toggle-calendario",contentId:"content-calendario",iconId: "icon-calendario"},
-      { btnId: "toggle-metricas", contentId: "content-metricas", iconId: "icon-metricas" }
-    ];
+      const toggleButtons = document.querySelectorAll(
+        'button[data-toggle^="toggle-"]'
+      );
 
-    toggles.forEach(({ btnId, contentId, iconId }) => {
-      const btn     = document.getElementById(btnId);
-      const content = document.getElementById(contentId);
-      const icon    = document.getElementById(iconId);
-
-      if (btn && content && icon) {
+      toggleButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
-          content.classList.toggle("hidden");
-          icon.classList.toggle("rotate-180");
+          const contentId = btn.getAttribute("data-toggle");
+          const contentBox = document.getElementById(contentId);
+          const icon = btn.querySelector("svg[data-icon]");
+
+          if (!contentBox) return;
+
+          // Alterna a classe max-h-0 (controle de altura); o contentBox já está sempre "display: block"
+          if (contentBox.classList.contains("max-h-0")) {
+            // Expande: remove max-h-0 e define maxHeight grande
+            contentBox.classList.remove("max-h-0");
+            contentBox.style.maxHeight = "9999px";
+          } else {
+            // Recolhe: adiciona max-h-0 e retorna maxHeight a 0
+            contentBox.classList.add("max-h-0");
+            contentBox.style.maxHeight = "0";
+          }
+
+          // Alterna rotação do ícone (chevron)
+          if (icon) {
+            icon.classList.toggle("rotate-180");
+          }
         });
-      }
-    });
+      });
     })
     .catch((err) => console.error("Erro ao carregar data.json →", err));
 
