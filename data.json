@@ -1,0 +1,311 @@
+{
+  "alcance": 107378,
+  "engajamento": 943,
+  "taxaEngajamento": 0.88,
+  "frequencia": 2.21,
+  "compartilhamentos": 161,
+  "visualizacoes": 237184,
+  "visitas": 2288,
+  "interacoes": 943,
+  "curtidas": 356,
+  "comentarios": 63,
+  "salvos": 18,
+  "respostas": 0,
+  "clicksPerfil": 119,
+  "toquesLinkSite": 183,
+  "gruposDatas": ["01/06", "02/06", "03/06", "04/06", "05/06"],
+  "valoresEngajamento": [180, 210, 190, 190, 172],
+  "valoresAlcance": [22000, 24000, 21000, 20000, 20200],
+  "datasSeguidores": [
+    "01/Mai",
+    "02/Mai",
+    "03/Mai",
+    "04/Mai",
+    "05/Mai",
+    "06/Mai",
+    "07/Mai",
+    "08/Mai",
+    "09/Mai",
+    "10/Mai",
+    "11/Mai",
+    "12/Mai",
+    "13/Mai",
+    "14/Mai",
+    "15/Mai",
+    "16/Mai",
+    "17/Mai",
+    "18/Mai",
+    "19/Mai",
+    "20/Mai",
+    "21/Mai",
+    "22/Mai",
+    "23/Mai",
+    "24/Mai",
+    "25/Mai",
+    "26/Mai",
+    "27/Mai",
+    "28/Mai",
+    "29/Mai",
+    "30/Mai",
+    "31/Mai",
+    "01/Jun",
+    "02/Jun"
+  ],
+  "novosSeguidores": [
+    0, 0, 0, 0, 0, 0, 0, 0, 1, 5, 2, 2, 5, 0, 1, 9, 1, 1, 2, 14, 7, 15, 5, 9, 8,
+    21, 24, 18, 27, 19, 13, 25, 24
+  ],
+  "naoSeguidores": [
+    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0,
+    0, 0, 1, 1, 0, 0, 0, 0, 0
+  ],
+  "demografico": {
+    "idade": {
+      "labels": ["13-17", "18-24", "25-34", "35-44", "45-54", "55-64", "65+"],
+      "todos": [0.2, 4.4, 37.2, 36.7, 15.1, 5.8, 0.4],
+      "homens": [0.0, 4.5, 40.2, 39.8, 9.9, 5.3, 0.0],
+      "mulheres": [0.0, 3.9, 34.2, 30.9, 22.3, 7.8, 0.6]
+    },
+    "genero": {
+      "homens": 61.3,
+      "mulheres": 38.6
+    },
+    "cidade": {
+      "labels": [
+        "São Paulo",
+        "Osasco",
+        "Rio de Janeiro",
+        "Guarulhos",
+        "Piracicaba"
+      ],
+      "valores": [78.6, 4.6, 2.0, 0.9, 0.6]
+    }
+  },
+  "posts": [
+    {
+      "tipo": "carrossel",
+      "data": "26/05/25 17:10",
+      "publicacao": "🎾 Fábrica Premium | Vila Olímpia Tecnologia",
+      "likes": 54,
+      "comentarios": 13,
+      "salvos": 2,
+      "compartilhamentos": 10,
+      "novosSeguidores": 4,
+      "visitasPerfil": 22,
+      "acoesPerfil": 26,
+      "interacao": 69,
+      "alcance": 1700,
+      "visualizacoes": 3024
+    },
+    {
+      "tipo": "carrossel",
+      "data": "02/06/25 17:00",
+      "publicacao": "🌳 Fábrica Premium | Vila Olímpia Aqui, o silêncio foca. O",
+      "likes": 22,
+      "comentarios": 4,
+      "salvos": 1,
+      "compartilhamentos": 3,
+      "novosSeguidores": 0,
+      "visitasPerfil": 12,
+      "acoesPerfil": 12,
+      "interacao": 27,
+      "alcance": 235,
+      "visualizacoes": 453
+    },
+    {
+      "tipo": "carrossel",
+      "data": "05/05/25 17:55",
+      "publicacao": "🏛️ Fábrica Premium Vila Olímpia Onde excelência, conforto e",
+      "likes": 23,
+      "comentarios": 0,
+      "salvos": 3,
+      "compartilhamentos": 15,
+      "novosSeguidores": 1,
+      "visitasPerfil": 24,
+      "acoesPerfil": 25,
+      "interacao": 26,
+      "alcance": 679,
+      "visualizacoes": 1248
+    },
+    {
+      "tipo": "carrossel",
+      "data": "12/05/25 17:58",
+      "publicacao": "🎩 Fábrica Premium Vila Olímpia Resultados de verdade começam",
+      "likes": 21,
+      "comentarios": 2,
+      "salvos": 1,
+      "compartilhamentos": 7,
+      "novosSeguidores": 1,
+      "visitasPerfil": 7,
+      "acoesPerfil": 9,
+      "interacao": 24,
+      "alcance": 671,
+      "visualizacoes": 977
+    },
+    {
+      "tipo": "estático",
+      "data": "28/05/25 17:45",
+      "publicacao": "👔 Fábrica Premium Vila Olímpia Aqui, você não performa.",
+      "likes": 18,
+      "comentarios": 2,
+      "salvos": 0,
+      "compartilhamentos": 3,
+      "novosSeguidores": 0,
+      "visitasPerfil": 18,
+      "acoesPerfil": 21,
+      "interacao": 20,
+      "alcance": 302,
+      "visualizacoes": 445
+    },
+    {
+      "tipo": "estático",
+      "data": "01/05/25 21:20",
+      "publicacao": "🛠️ Dia do Trabalhador | Fábrica Premium Vila Olímpia Trabalhar é",
+      "likes": 17,
+      "comentarios": 3,
+      "salvos": 0,
+      "compartilhamentos": 0,
+      "novosSeguidores": 0,
+      "visitasPerfil": 5,
+      "acoesPerfil": 5,
+      "interacao": 20,
+      "alcance": 512,
+      "visualizacoes": 623
+    },
+    {
+      "tipo": "estático",
+      "data": "14/05/25 17:13",
+      "publicacao": "🎧 Fábrica Premium Vila Olímpia Conexão total com sua",
+      "likes": 14,
+      "comentarios": 2,
+      "salvos": 0,
+      "compartilhamentos": 0,
+      "novosSeguidores": 0,
+      "visitasPerfil": 1,
+      "acoesPerfil": 1,
+      "interacao": 2,
+      "alcance": 299,
+      "visualizacoes": 401
+    },
+    {
+      "tipo": "estático",
+      "data": "07/05/25 18:45",
+      "publicacao": "🔥 Fábrica Premium | Vila Olímpia Exclusividade. Alta",
+      "likes": 15,
+      "comentarios": 0,
+      "salvos": 0,
+      "compartilhamentos": 0,
+      "novosSeguidores": 0,
+      "visitasPerfil": 19,
+      "acoesPerfil": 19,
+      "interacao": 15,
+      "alcance": 293,
+      "visualizacoes": 409
+    },
+    {
+      "tipo": "reel",
+      "data": "10/05/25 00:00",
+      "publicacao": "🎥 Fábrica Premium | Vila Olímpia – Superando Limites",
+      "likes": 63,
+      "comentarios": 14,
+      "salvos": 5,
+      "compartilhamentos": 39,
+      "interacao": 121,
+      "novosSeguidores": 13,
+      "visitasPerfil": 13,
+      "acoesPerfil": 13,
+      "alcance": 4569,
+      "visualizacoes": 5702,
+      "insightsReel": {
+        "visualizacoesTotais": 5702,
+        "visualizacoesSeguidoresPercent": 27.2,
+        "visualizacoesNaoSeguidoresPercent": 72.8,
+        "contasAlcancadas": 4569,
+        "interacoesTotais": 121,
+        "interacoesSeguidoresPercent": 47.5,
+        "interacoesNaoSeguidoresPercent": 52.5,
+        "interacoesBreakdown": {
+          "curtidas": 63,
+          "comentarios": 14,
+          "salvamentos": 5,
+          "compartilhamentos": 39
+        },
+        "contasComEngajamento": 76,
+        "perfil": {
+          "atividadePerfil": 13,
+          "seguidoresGanhos": 13
+        }
+      }
+    },
+    {
+      "tipo": "reel",
+      "data": "16/05/25 00:00",
+      "publicacao": "🎥 Fábrica Premium | Vila Olímpia – Arquitetura de Força",
+      "likes": 52,
+      "comentarios": 12,
+      "salvos": 4,
+      "compartilhamentos": 50,
+      "interacao": 118,
+      "novosSeguidores": 9,
+      "visitasPerfil": 9,
+      "acoesPerfil": 9,
+      "alcance": 1522,
+      "visualizacoes": 2275,
+      "insightsReel": {
+        "visualizacoesTotais": 2275,
+        "visualizacoesSeguidoresPercent": 31.7,
+        "visualizacoesNaoSeguidoresPercent": 68.3,
+        "contasAlcancadas": 1522,
+        "interacoesTotais": 118,
+        "interacoesSeguidoresPercent": 56.8,
+        "interacoesNaoSeguidoresPercent": 43.2,
+        "interacoesBreakdown": {
+          "curtidas": 52,
+          "comentarios": 12,
+          "salvamentos": 4,
+          "compartilhamentos": 50
+        },
+        "contasComEngajamento": 76,
+        "perfil": {
+          "atividadePerfil": 9,
+          "seguidoresGanhos": 9
+        }
+      }
+    },
+    {
+      "tipo": "reel",
+      "data": "21/05/25 00:00",
+      "publicacao": "🎥 Fábrica Premium | Vila Olímpia – Muito Além do Treino",
+      "likes": 57,
+      "comentarios": 11,
+      "salvos": 2,
+      "compartilhamentos": 34,
+      "interacao": 104,
+      "novosSeguidores": 4,
+      "visitasPerfil": 4,
+      "acoesPerfil": 4,
+      "alcance": 1353,
+      "visualizacoes": 2000,
+      "insightsReel": {
+        "visualizacoesTotais": 2000,
+        "visualizacoesSeguidoresPercent": 37.2,
+        "visualizacoesNaoSeguidoresPercent": 62.8,
+        "contasAlcancadas": 1353,
+        "interacoesTotais": 104,
+        "interacoesSeguidoresPercent": 76.0,
+        "interacoesNaoSeguidoresPercent": 24.0,
+        "interacoesBreakdown": {
+          "curtidas": 57,
+          "comentarios": 11,
+          "salvamentos": 2,
+          "compartilhamentos": 34
+        },
+        "contasComEngajamento": 74,
+        "perfil": {
+          "atividadePerfil": 4,
+          "seguidoresGanhos": 4
+        }
+      }
+    }
+  ]
+}
