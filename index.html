@@ -45,14 +45,14 @@
                     <h2 class="text-2xl font-semibold text-gray-800 mb-4">Alcance vs. Impressões</h2>
 
                     <!-- Números principais -->
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex-1 text-center">
-                            <span id="alcance-unique" class="block text-5xl font-bold text-indigo-600">—</span>
+                    <div class="grid grid-cols-2 gap-4 text-center mb-4">
+                        <div>
+                            <span id="alcance-unique"
+                                class="block text-3xl sm:text-5xl font-bold text-indigo-600">—</span>
                             <span class="block text-sm text-gray-500 mt-1">Contas únicas alcançadas</span>
                         </div>
-                        <div class="w-px h-12 bg-gray-300 mx-4"></div>
-                        <div class="flex-1 text-center">
-                            <span id="impressoes" class="block text-5xl font-bold text-green-500">—</span>
+                        <div>
+                            <span id="impressoes" class="block text-3xl sm:text-5xl font-bold text-green-500">—</span>
                             <span class="block text-sm text-gray-500 mt-1">Impressões totais</span>
                         </div>
                     </div>
@@ -593,7 +593,8 @@
                 <h3 class="text-xl font-semibold text-gray-800 mb-4">
                     Distribuição por Faixa Etária (Todos / Homens / Mulheres)
                 </h3>
-                <div class="w-full h-96">
+                <div
+                    class="w-full min-h-[20vh] sm:min-h-[50vh] md:min-h-[60vh] lg:min-h-[70vh] xl:min-h-[50vh] max-h-[50vh]">
                     <canvas id="chartIdadeUnico" class="w-full h-full"></canvas>
                 </div>
                 <!-- Toggle “Insights e Observações” -->
@@ -671,28 +672,25 @@
 
         <!-- ========== CARD 1: Posts Estáticos & Carrosséis (CARROSSEL HORIZONTAL) ========== -->
         <section id="card-posts-estaticos-carrosseis"
-            class="bg-white rounded-xl shadow p-6 mb-8 hover:shadow-lg transition-shadow relative">
+            class="bg-white rounded-xl shadow p-4 sm:p-6 mb-8 hover:shadow-lg transition-shadow relative">
+
             <h3 class="text-xl font-semibold text-gray-800 mb-4">Posts Estáticos &amp; Carrosséis</h3>
 
-            <!-- Botão “Prev” (esquerda) -->
+            <!-- Botões de navegação -->
             <button id="ec-prev-btn"
-                class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-gray-700 rounded-full p-2 shadow transition-colors"
-                aria-label="Anterior">
+                class="absolute left-1 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed">
                 ◀
             </button>
 
-            <!-- Container que esconde o overflow horizontal -->
-            <div id="ec-carousel-container" class="overflow-hidden">
-                <!-- Wrapper flexível: nesta DIV aplicaremos o scrollLeft via JS -->
-                <div id="ec-carousel-inner" class="flex space-x-6 pb-2">
-                    <!-- AQUI serão inseridos via JS os cards com class="min-w-[28rem] ..." -->
+            <div id="ec-carousel-container" class="overflow-x-auto scrollbar-thin">
+                <div id="ec-carousel-inner"
+                    class="flex gap-4 sm:gap-6 pb-2 sm:pb-4 w-fit min-w-full snap-x snap-mandatory sm:snap-none">
+                    <!-- Cards são inseridos via JS -->
                 </div>
             </div>
 
-            <!-- Botão “Next” (direita) -->
             <button id="ec-next-btn"
-                class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-gray-700 rounded-full p-2 shadow transition-colors"
-                aria-label="Próximo">
+                class="absolute right-1 top-1/2 -translate-y-1/2 z-10 bg-white shadow rounded-full p-2 text-gray-700 hover:bg-gray-100 disabled:opacity-40 disabled:cursor-not-allowed">
                 ▶
             </button>
         </section>
@@ -1037,7 +1035,6 @@
 
             </div>
         </section>
-
 
         <!-- Rodapé -->
         <footer class="text-center text-gray-500 text-sm mt-12">
