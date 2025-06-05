@@ -638,7 +638,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const card = document.createElement("div");
         // Cada card terá largura mínima de 28rem (aprox. 448px)
         card.className =
-          "min-w-[28rem] bg-white rounded-xl shadow p-6 hover:shadow-lg transition-shadow flex flex-col justify-between";
+          "min-w-[70vw] sm:min-w-[28rem] max-w-full snap-start bg-white rounded-xl shadow p-4 sm:p-6 hover:shadow-lg transition-shadow flex flex-col justify-between border-2 border-blue-100";
 
         // Borda colorida de acordo com o tipo
         if (tipoPost === "carrossel") {
