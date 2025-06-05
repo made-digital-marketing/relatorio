@@ -8,7 +8,7 @@
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Custom Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -707,33 +707,45 @@
         </section>
 
         <!-- ================================================
-  CARD: Principais Insights e Recomendações Estratégicas
-  ================================================ -->
-        <section id="card-insights-recs" class="bg-white rounded-xl shadow p-6 mb-8 hover:shadow-lg transition-shadow">
-            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Principais Insights e Recomendações Estratégicas</h3>
+        CARD ULTRA VISUAL: Principais Insights e Recomendações
+        ================================================ -->
+        <section id="card-ultra-visual" class="bg-white rounded-2xl shadow-lg p-6 mb-12">
+            <h3 class="text-3xl font-bold text-gray-800 mb-6">Principais Insights &amp; Recomendações</h3>
 
-            <!-- Container de seções colapsáveis -->
-            <div class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
 
-                <!-- 1) Focar em Reels como Carro-Chefe -->
-                <div>
-                    <button id="toggle-reels"
-                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
-                        <span>Focar em Reels como Carro-Chefe</span>
-                        <svg id="icon-reels" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
-                                clip-rule="evenodd" />
+                <!-- 1) Reels como Carro-Chefe -->
+                <div class="relative bg-gray-50 rounded-xl shadow hover:shadow-xl transition-shadow overflow-hidden">
+                    <div class="flex items-center p-4 bg-blue-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14.752 11.168l-5.197-3.02A1 1 0 008 8.998v6.004a1 1 0 001.555.832l5.197-3.02a1 1 0 000-1.664z" />
+                        </svg>
+                        <h4 class="ml-3 text-lg font-semibold text-white">Reels como Carro-Chefe</h4>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-gray-700 text-sm leading-snug line-clamp-2">
+                            Cronograma mínimo de <span class="font-medium">3 Reels/semana</span>, intercalando temas
+                            para manter variedade e alto engajamento.
+                        </p>
+                    </div>
+                    <button
+                        class="w-full text-blue-600 hover:text-blue-800 font-medium border-t border-gray-200 py-3 flex justify-center items-center focus:outline-none"
+                        data-toggle="toggle-reels">
+                        <span>Ver Detalhes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 ml-1 transform transition-transform duration-200" data-icon="icon-reels"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div id="content-reels" class="mt-2 bg-gray-50 rounded-lg border-l-4 border-blue-600 p-4 hidden">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <div id="toggle-reels"
+                        class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out bg-blue-50 border-l-4 border-blue-600 px-4">
+                        <ul class="list-disc list-inside text-gray-700 py-4 space-y-2">
                             <li>
-                                A performance dos Reels é consistentemente superior. Sugerimos um cronograma mínimo de
-                                <span class="font-semibold">3 Reels por semana</span>, intercalando temas:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                <span class="font-semibold">3 Reels por semana</span>, rodízio de temas:
+                                <ul class="list-inside list-[circle] ml-5 mt-1 space-y-1 text-gray-600">
                                     <li>Suplementação</li>
                                     <li>Nutrição</li>
                                     <li>Recuperação</li>
@@ -741,84 +753,104 @@
                                 </ul>
                             </li>
                             <li>
-                                Use <span class="font-semibold">1–2 posts estáticos/carrosséis semanais</span> para
-                                conteúdo detalhado, como:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                Complementar com <span class="font-semibold">1–2 posts estáticos/carrosséis</span>
+                                semanais:
+                                <ul class="list-inside list-[circle] ml-5 mt-1 space-y-1 text-gray-600">
                                     <li>“5 exercícios para hipertrofia com técnica”</li>
                                     <li>“Infográfico: Benefícios da crioterapia”</li>
                                 </ul>
-                                Esses formatos geram salvamentos ao longo do tempo.
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- 2) Otimizar CTAs para Aumentar Conversão -->
-                <div>
-                    <button id="toggle-ctas"
-                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
-                        <span>Otimizar CTAs para Aumentar Conversão</span>
-                        <svg id="icon-ctas" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
-                                clip-rule="evenodd" />
+                <div class="relative bg-gray-50 rounded-xl shadow hover:shadow-xl transition-shadow overflow-hidden">
+                    <div class="flex items-center p-4 bg-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                        <h4 class="ml-3 text-lg font-semibold text-white">Otimizar CTAs</h4>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-gray-700 text-sm leading-snug line-clamp-2">
+                            Chamada clara nos Reels e carrosséis para aumentar cliques e comentários. Testar links
+                            diretos nos Stories.
+                        </p>
+                    </div>
+                    <button
+                        class="w-full text-green-600 hover:text-green-800 font-medium border-t border-gray-200 py-3 flex justify-center items-center focus:outline-none"
+                        data-toggle="toggle-ctas">
+                        <span>Ver Detalhes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 ml-1 transform transition-transform duration-200" data-icon="icon-ctas"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div id="content-ctas" class="mt-2 bg-gray-50 rounded-lg border-l-4 border-green-600 p-4 hidden">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <div id="toggle-ctas"
+                        class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out bg-green-50 border-l-4 border-green-600 px-4">
+                        <ul class="list-disc list-inside text-gray-700 py-4 space-y-2">
                             <li>
-                                Nos <span class="font-semibold">Reels</span>, inserir chamadas claras como:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
-                                    <li>“Clique no link na bio para agendar aula experimental”</li>
-                                    <li>“Comente qual seu maior desafio no treino”</li>
-                                </ul>
+                                <span class="font-semibold">Nos Reels</span>: “Clique no link na bio para agendar aula
+                                experimental”
+                                e “Comente qual seu maior desafio no treino”.
                             </li>
                             <li>
-                                Nos <span class="font-semibold">carrosséis</span>, usar CTAs como:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
-                                    <li>“Deslize e salve este carrossel se achar útil”</li>
-                                </ul>
+                                <span class="font-semibold">Nos Carrosséis</span>: “Deslize e salve este carrossel se
+                                achar útil”.
                             </li>
                             <li>
                                 Testar <span class="font-semibold">links diretos nos Stories</span> para campanhas
-                                pontuais
                                 (novas turmas, eventos, lives).
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- 3) Aproveitar o Potencial de Salvamentos e Compartilhamentos -->
-                <div>
-                    <button id="toggle-salvcomp"
-                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
-                        <span>Aproveitar o Potencial de Salvamentos e Compartilhamentos</span>
-                        <svg id="icon-salvcomp" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
-                                clip-rule="evenodd" />
+                <!-- 3) Potencial de Salvamentos e Compartilhamentos -->
+                <div class="relative bg-gray-50 rounded-xl shadow hover:shadow-xl transition-shadow overflow-hidden">
+                    <div class="flex items-center p-4 bg-yellow-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M5 3v4a2 2 0 002 2h3m10-2V3m0 0h-3a2 2 0 00-2 2v4m0 4v4a2 2 0 002 2h3m-10 0H7a2 2 0 01-2-2v-4m0-4V7a2 2 0 012-2h3" />
+                        </svg>
+                        <h4 class="ml-3 text-lg font-semibold text-white">Salvamentos & Compartilhamentos</h4>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-gray-700 text-sm leading-snug line-clamp-2">
+                            Use roteiros de treino em casa, demonstrações rápidas e truques de recuperação com visual
+                            marcante para incentivar salvamentos/compartilhamentos.
+                        </p>
+                    </div>
+                    <button
+                        class="w-full text-yellow-600 hover:text-yellow-800 font-medium border-t border-gray-200 py-3 flex justify-center items-center focus:outline-none"
+                        data-toggle="toggle-salvcomp">
+                        <span>Ver Detalhes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 ml-1 transform transition-transform duration-200" data-icon="icon-salvcomp"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div id="content-salvcomp"
-                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-yellow-600 p-4 hidden">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <div id="toggle-salvcomp"
+                        class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out bg-yellow-50 border-l-4 border-yellow-600 px-4">
+                        <ul class="list-disc list-inside text-gray-700 py-4 space-y-2">
                             <li>
-                                Para <span class="font-semibold">salvamentos</span>, criar conteúdos práticos com
-                                elementos visuais marcantes:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
-                                    <li>“Roteiros de treino em casa em 3 passos”</li>
-                                    <li>“Demonstrações rápidas de técnica”</li>
-                                    <li>“Truques de recuperação pós-treino”</li>
+                                <span class="font-semibold">Conteúdos práticos</span>, p.ex.:
+                                <ul class="list-inside list-[circle] ml-5 mt-1 space-y-1 text-gray-600">
+                                    <li>Roteiros de treino em casa em 3 passos</li>
+                                    <li>Demonstrações rápidas de técnica</li>
+                                    <li>Truques de recuperação pós-treino</li>
                                 </ul>
-                                Use legendas/etapas numeradas para incentivar o salvamento.
+                                Use legendas/etapas numeradas para incentivar o <span
+                                    class="font-semibold">salvamento</span>.
                             </li>
                             <li>
-                                Para <span class="font-semibold">compartilhamentos</span>, explorar temas
-                                curiosos/inspiradores:
+                                Para <span class="font-semibold">compartilhamentos</span>, explore:
                                 <blockquote class="border-l-4 border-purple-400 pl-3 italic text-gray-600">
                                     “Você sabia que…?” + “Compartilhe com o amigo que precisa ver isso”
                                 </blockquote>
@@ -827,126 +859,172 @@
                     </div>
                 </div>
 
-                <!-- 4) Ajustar a Linguagem ao Público Principal (Homens 25–44 anos) -->
-                <div>
-                    <button id="toggle-linguagem"
-                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
-                        <span>Ajustar a Linguagem ao Público Principal (Homens 25–44 anos)</span>
-                        <svg id="icon-linguagem" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
-                                clip-rule="evenodd" />
+                <!-- 4) Linguagem p/ Homens 25–44 anos -->
+                <div class="relative bg-gray-50 rounded-xl shadow hover:shadow-xl transition-shadow overflow-hidden">
+                    <div class="flex items-center p-4 bg-pink-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
+                        </svg>
+                        <h4 class="ml-3 text-lg font-semibold text-white">Linguagem: Homens 25‒44</h4>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-gray-700 text-sm leading-snug line-clamp-2">
+                            Priorizar temas de performance: “Como ganhar 5 kg de músculo em 2 meses” e “Rotina vulto
+                            para quem trabalha o dia todo”.
+                        </p>
+                    </div>
+                    <button
+                        class="w-full text-pink-600 hover:text-pink-800 font-medium border-t border-gray-200 py-3 flex justify-center items-center focus:outline-none"
+                        data-toggle="toggle-linguagem">
+                        <span>Ver Detalhes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 ml-1 transform transition-transform duration-200" data-icon="icon-linguagem"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div id="content-linguagem"
-                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-pink-600 p-4 hidden">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <div id="toggle-linguagem"
+                        class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out bg-pink-50 border-l-4 border-pink-600 px-4">
+                        <ul class="list-disc list-inside text-gray-700 py-4 space-y-2">
                             <li>
-                                Priorizar temas de performance e “training hard”:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                Temas de performance:
+                                <ul class="list-inside list-[circle] ml-5 mt-1 space-y-1 text-gray-600">
                                     <li>“Como colocar 5 kg de músculo em 2 meses”</li>
                                     <li>“Rotina de treino vulto para quem trabalha o dia todo”</li>
                                 </ul>
                             </li>
                             <li>
-                                Incluir pontualmente conteúdo voltado para mulheres para equilibrar a base, mas sem
+                                Incluir pontualmente <span class="font-semibold">conteúdo para mulheres</span> sem
                                 dispersar a estratégia principal.
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- 5) Melhorar a Qualidade das Legendas e Elementos Visuais -->
-                <div>
-                    <button id="toggle-legendas"
-                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
-                        <span>Melhorar a Qualidade das Legendas e Elementos Visuais</span>
-                        <svg id="icon-legendas" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
-                                clip-rule="evenodd" />
+                <!-- 5) Qualidade de Legendas & Visuais -->
+                <div class="relative bg-gray-50 rounded-xl shadow hover:shadow-xl transition-shadow overflow-hidden">
+                    <div class="flex items-center p-4 bg-red-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1M4 8V7a3 3 0 013-3h10a3 3 0 013 3v1M4 12h16" />
+                        </svg>
+                        <h4 class="ml-3 text-lg font-semibold text-white">Legendas &amp; Visuais</h4>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-gray-700 text-sm leading-snug line-clamp-2">
+                            Legendas precisas, tipografia sóbria e legendas para Reels (usuários assistem sem som).
+                            Tonalidade minimalista/premium.
+                        </p>
+                    </div>
+                    <button
+                        class="w-full text-red-600 hover:text-red-800 font-medium border-t border-gray-200 py-3 flex justify-center items-center focus:outline-none"
+                        data-toggle="toggle-legendas">
+                        <span>Ver Detalhes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 ml-1 transform transition-transform duration-200" data-icon="icon-legendas"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div id="content-legendas" class="mt-2 bg-gray-50 rounded-lg border-l-4 border-red-600 p-4 hidden">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <div id="toggle-legendas"
+                        class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out bg-red-50 border-l-4 border-red-600 px-4">
+                        <ul class="list-disc list-inside text-gray-700 py-4 space-y-2">
                             <li>
-                                Para posts estáticos, reforçar identidade visual minimalista/premium:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                Posts estáticos: identidade visual <span
+                                    class="font-semibold">minimalista/premium</span>:
+                                <ul class="list-inside list-[circle] ml-5 mt-1 space-y-1 text-gray-600">
                                     <li>Texto preciso, tipografia sóbria, espaçamento adequado</li>
-                                    <li>Legendas alinhadas à persona: tom confiante, linguagem direta, ressaltando
-                                        exclusividade:
-                                        <span class="italic">“Treine com máxima performance em instalações de
-                                            ponta”</span>
-                                    </li>
+                                    <li>Legendas alinhadas à persona, tom confiante, ressaltando exclusividade</li>
                                 </ul>
                             </li>
                             <li>
-                                Nos Reels, garantir:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
-                                    <li>Boa iluminação e áudio claro</li>
-                                    <li>Uso de legendas e sobreposições textuais (usuários assistem sem som)</li>
-                                </ul>
+                                Reels: <span class="font-semibold">iluminação e áudio claros</span>, legendas e
+                                sobreposições textuais para quem assiste sem som.
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- 6) Planejar Calendário Editorial Baseado em Picos de Crescimento -->
-                <div>
-                    <button id="toggle-calendario"
-                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
-                        <span>Planejar Calendário Editorial Baseado em Picos de Crescimento</span>
-                        <svg id="icon-calendario" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
-                                clip-rule="evenodd" />
+                <!-- 6) Calendário Editorial Baseado em Picos -->
+                <div class="relative bg-gray-50 rounded-xl shadow hover:shadow-xl transition-shadow overflow-hidden">
+                    <div class="flex items-center p-4 bg-indigo-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 7V3m8 4V3m-9 8h10m-12 8h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                        <h4 class="ml-3 text-lg font-semibold text-white">Calendário Editorial</h4>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-gray-700 text-sm leading-snug line-clamp-2">
+                            Planejar conteúdos com base nos dias de maior salto de seguidores, replicando formatos que
+                            geraram picos.
+                        </p>
+                    </div>
+                    <button
+                        class="w-full text-indigo-600 hover:text-indigo-800 font-medium border-t border-gray-200 py-3 flex justify-center items-center focus:outline-none"
+                        data-toggle="toggle-calendario">
+                        <span>Ver Detalhes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 ml-1 transform transition-transform duration-200" data-icon="icon-calendario"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div id="content-calendario"
-                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-indigo-600 p-4 hidden">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <div id="toggle-calendario"
+                        class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out bg-indigo-50 border-l-4 border-indigo-600 px-4">
+                        <ul class="list-disc list-inside text-gray-700 py-4 space-y-2">
                             <li>
-                                Nos dias de maior incremento de seguidores, identificar se houve:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                Identificar dias de maior incremento de seguidores e verificar se houve:
+                                <ul class="list-inside list-[circle] ml-5 mt-1 space-y-1 text-gray-600">
                                     <li>Lançamento de oferta</li>
                                     <li>Evento ou parceria</li>
                                     <li>Formato de conteúdo específico</li>
                                 </ul>
                             </li>
                             <li>
-                                Repetir ou adaptar o formato que gerou picos para as próximas semanas.
+                                Repetir/adaptar minisséries ou formatos que geraram picos para as próximas semanas.
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- 7) Monitorar Métricas de Conversão Específicas -->
-                <div>
-                    <button id="toggle-metricas"
-                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
-                        <span>Monitorar Métricas de Conversão Específicas</span>
-                        <svg id="icon-metricas" xmlns="http://www.w3.org/2000/svg"
-                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
-                            viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd"
-                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
-                                clip-rule="evenodd" />
+                <!-- 7) Métricas de Conversão Específicas -->
+                <div class="relative bg-gray-50 rounded-xl shadow hover:shadow-xl transition-shadow overflow-hidden">
+                    <div class="flex items-center p-4 bg-teal-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white flex-shrink-0" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5V10H2v10h5M12 4v16M2 10h5M17 20V10h5M17 4v6m0 0H7m10 0h-3" />
+                        </svg>
+                        <h4 class="ml-3 text-lg font-semibold text-white">Métricas de Conversão</h4>
+                    </div>
+                    <div class="p-4 space-y-2">
+                        <p class="text-gray-700 text-sm leading-snug line-clamp-2">
+                            Aumentar cliques no link (hoje ~8 %) e monitorar quantos cliques geram cadastros ou CTAs via
+                            UTM.
+                        </p>
+                    </div>
+                    <button
+                        class="w-full text-teal-600 hover:text-teal-800 font-medium border-t border-gray-200 py-3 flex justify-center items-center focus:outline-none"
+                        data-toggle="toggle-metricas">
+                        <span>Ver Detalhes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 ml-1 transform transition-transform duration-200" data-icon="icon-metricas"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
-                    <div id="content-metricas" class="mt-2 bg-gray-50 rounded-lg border-l-4 border-teal-600 p-4 hidden">
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <div id="toggle-metricas"
+                        class="max-h-0 overflow-hidden transition-[max-height] duration-300 ease-in-out bg-teal-50 border-l-4 border-teal-600 px-4">
+                        <ul class="list-disc list-inside text-gray-700 py-4 space-y-2">
                             <li>
-                                Elevar a proporção de seguidores que clicam no link (atualmente ~8 % dos que visitam
-                                perfil)
-                                por meio de:
-                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
-                                    <li>Ofertas limitadas (“Só hoje: agende avaliação gratuita”)</li>
+                                Elevar a proporção de seguidores que clicam no link:
+                                <ul class="list-inside list-[circle] ml-5 mt-1 space-y-1 text-gray-600">
+                                    <li>Ofertas limitadas: “Só hoje: agende avaliação gratuita”</li>
                                 </ul>
                             </li>
                             <li>
@@ -968,7 +1046,7 @@
     </main>
 
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 
 </html>
