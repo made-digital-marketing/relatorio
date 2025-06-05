@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatório Interativo Instagram</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navegação -->
+    <nav class="bg-white shadow-md mb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-semibold text-gray-900">Relatório Instagram</a>
+                </div>
+                <div class="flex items-center">
+                    <button class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="max-w-7xl mx-auto px-6">
+        <!-- Seção: Análise de Métricas Principais (dados do JSON) -->
+        <section id="analise-principais" class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 items-stretch">
+            <!-- Card 1: Alcance vs. Impressões -->
+            <div
+                class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+                <!-- Wrapper Superior -->
+                <div class="flex-grow">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Alcance vs. Impressões</h2>
+
+                    <!-- Números principais -->
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="flex-1 text-center">
+                            <span id="alcance-unique" class="block text-5xl font-bold text-indigo-600">—</span>
+                            <span class="block text-sm text-gray-500 mt-1">Contas únicas alcançadas</span>
+                        </div>
+                        <div class="w-px h-12 bg-gray-300 mx-4"></div>
+                        <div class="flex-1 text-center">
+                            <span id="impressoes" class="block text-5xl font-bold text-green-500">—</span>
+                            <span class="block text-sm text-gray-500 mt-1">Impressões totais</span>
+                        </div>
+                    </div>
+
+                    <!-- Explicação de conceitos -->
+                    <div class="text-gray-600 space-y-2 mb-4">
+                        <p>
+                            A diferença entre impressões e alcance indica que, em média, cada conta viu seu conteúdo
+                            <span id="repeticao" class="font-semibold text-gray-800">—</span> vezes.
+                            Esse índice confirma sua métrica de frequência, sinalizando que uma parcela significativa do
+                            público repete a visualização.
+                        </p>
+                    </div>
+                </div>
+                <!-- Fim do Wrapper Superior -->
+
+                <!-- Toggles (sempre na parte inferior) -->
+                <div>
+                    <!-- Toggle “Insights e Observações” -->
+                    <button id="toggle-insights"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-left text-gray-800 font-medium focus:outline-none mb-2">
+                        <span>Insights e Observações</span>
+                        <svg id="icon-insights" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+                                   4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="insights-content"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-indigo-600 p-4 hidden">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>
+                                Esse índice de repetição sugere que muitos seguidores consomem o
+                                mesmo post mais de uma vez.
+                                <ul class="list-inside list-[circle] ml-4 text-gray-600 space-y-1">
+                                    <li>Indica conteúdo altamente relevante para esse público;</li>
+                                    <li>Ou pode sinalizar saturação, se os formatos são muito repetitivos;</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Se o objetivo é aumentar o <span class="font-medium">alcance</span>, experimente postar
+                                em horários alternados (manhã, tarde, noite) e crie conteúdos que estimulem
+                                compartilhamentos espontâneos.
+                            </li>
+                            <li>
+                                Para reduzir a <span class="font-medium">repetição excessiva</span>, diversifique temas
+                                semanais e use CTAs diferentes (por exemplo, enquetes nos Stories).
+                            </li>
+                            <li>
+                                Analise quais posts possuem menor diferença entre “impressões” e “alcance”: geralmente,
+                                esses são consumidos apenas por um grupo restrito de seguidores. Tente expandir a
+                                segmentação nesses casos.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Toggle “Recomendações” -->
+                    <button id="toggle-recommendations"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Recomendações</span>
+                        <svg id="icon-recommendations" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+                                   4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="recommendations-content"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-indigo-600 p-4 hidden">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>
+                                <span class="font-semibold">Incentive novos compartilhamentos:</span> crie CTAs diretas
+                                para marcação de amigos e salvamento de post. Isso ajuda a aumentar o alcance e reduz o
+                                número de visualizações repetidas pelo mesmo usuário.
+                            </li>
+                            <li>
+                                <span class="font-semibold">Teste variação de horários:</span> publique em diferentes
+                                horários do dia (manhã, tarde, noite) e use os dados de “Horários de Maior Alcance” para
+                                definir picos de audiência.
+                            </li>
+                            <li>
+                                <span class="font-semibold">Diversifique formatos:</span> alterne entre carrosséis,
+                                Reels e Stories interativos. Vídeos curtos (Reels) tendem a gerar mais alcance orgânico
+                                e compartilhamentos.
+                            </li>
+                            <li>
+                                <span class="font-semibold">Monitore a frequência de posts:</span> se a repetição média
+                                ultrapassar 2,5, avalie espaçar mais as publicações ou mudar o tema para manter o feed
+                                renovado e evitar fadiga de seguidores.
+                            </li>
+                            <li>
+                                <span class="font-semibold">Considere feedback qualitativo:</span> acompanhe comentários
+                                e mensagens diretas para entender se a audiência está encontrando valor nos posts
+                                repetidos ou se deseja novos formatos/temas.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Fim dos Toggles -->
+            </div>
+
+            <!-- Card 2: Taxa de Engajamento -->
+            <div
+                class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+                <!-- Wrapper Superior -->
+                <div class="flex-grow">
+                    <div class="mb-4">
+                        <h2 class="text-2xl font-semibold text-gray-800">Taxa de Engajamento</h2>
+                        <p class="text-sm text-gray-500 mt-1">
+                            Base de Seguidores: <span class="font-medium text-gray-800">475</span>
+                        </p>
+                    </div>
+
+                    <!-- Valor Dinâmico da Taxa -->
+                    <div class="flex items-center mb-4">
+                        <div class="flex-shrink-0 bg-yellow-100 rounded-full p-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
+                            </svg>
+                        </div>
+                        <div class="ml-4">
+                            <span id="taxa-engajamento" class="block text-5xl font-bold text-yellow-500">— %</span>
+                            <span class="block text-gray-500 mt-1">Média de mercado: 1 – 3 %</span>
+                        </div>
+                    </div>
+
+                    <!-- Definição e Contexto -->
+                    <div class="text-gray-600 space-y-2 mb-4">
+                        <p>
+                            Se a taxa calculada estiver abaixo de 1 %, significa que, embora
+                            seus posts cheguem aos seguidores, muitos ainda não estão motivados a interagir.
+                        </p>
+                    </div>
+                </div>
+                <!-- Fim do Wrapper Superior -->
+
+                <!-- Toggles (parte inferior) -->
+                <div>
+                    <!-- Toggle “Insights e Observações” -->
+                    <button id="toggle-insights-te"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-left text-gray-800 font-medium focus:outline-none mb-2">
+                        <span>Insights e Observações</span>
+                        <svg id="icon-insights-te" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+                                   4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="insights-content-te"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-yellow-500 p-4 hidden">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>
+                                Com 475 seguidores, sua taxa indica que:
+                                <ul class="list-inside list-[circle] ml-4 text-gray-600 space-y-1">
+                                    <li>A maior parte dos seguidores visualiza, mas não interage (pode faltar um gancho
+                                        criativo ou CTA claro).</li>
+                                    <li>Perfis com conteúdo muito similar (sempre “venda direta” ou dicas sem variação)
+                                        tendem a gerar menos engajamento.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Em comparação com o benchmark (1 – 3 %), sua taxa atual está ligeiramente abaixo, mas
+                                não distante. Pequenos ajustes podem elevar esse percentual.
+                            </li>
+                            <li>
+                                Caso a maioria dos posts seja apenas imagens estáticas, o público pode preferir formatos
+                                mais interativos (Reels, Enquetes nos Stories) para engajar de verdade.
+                            </li>
+                            <li>
+                                Analise quais posts geraram picos de engajamento (curtidas, comentários, salvamentos).
+                                Eles revelam insights sobre temas, estilo visual ou horários que funcionam melhor para
+                                seus 475 seguidores.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Toggle “Recomendações Práticas” -->
+                    <button id="toggle-recs-te"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Recomendações Práticas</span>
+                        <svg id="icon-recs-te" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+                                   4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="recs-content-te"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-yellow-500 p-4 hidden">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li class="ml-2">
+                                <span class="font-semibold">Crie CTAs Direcionados:</span>
+                                Em cada post, inclua instruções claras como “💬 Comente abaixo o que achou deste
+                                treino!” ou “🔖 Salve este post para rever depois”. Isso incentiva curtidas, comentários
+                                e salvamentos.
+                            </li>
+                            <li class="ml-2">
+                                <span class="font-semibold">Use Perguntas e Enquetes:</span>
+                                Nas Stories, adicione caixas de pergunta e enquetes interativas relacionadas a fitness.
+                                Esse formato costuma gerar respostas rápidas e fortalecer vínculo com seguidores.
+                            </li>
+                            <li class="ml-2">
+                                <span class="font-semibold">Diversifique Formatos:</span>
+                                Alterne entre carrosséis, Reels e vídeos curtos (até 60 s). Reels tendem a ter maior
+                                alcance e engajamento. Teste também Lives rápidas para Q&A ou demonstrações de
+                                exercícios.
+                            </li>
+                            <li class="ml-2">
+                                <span class="font-semibold">Poste em Horários Estratégicos:</span>
+                                Acompanhe seus horários de pico (quando seus 475 seguidores estão mais ativos) e agende
+                                posts nesses horários para aumentar a chance de curtidas e comentários imediatos.
+                            </li>
+                            <li class="ml-2">
+                                <span class="font-semibold">Reaproveite Conteúdos de Alto Engajamento:</span>
+                                Se algum post teve desempenho acima da média (muitos comentários ou salvamentos),
+                                transforme-o em um mini-tutorial em vídeo ou crie um carrossel com dicas extras sobre o
+                                mesmo tema.
+                            </li>
+                            <li class="ml-2">
+                                <span class="font-semibold">Estimule Marcações:</span>
+                                Frases como “Marque um amigo que precisa dessas dicas!” ampliam as interações e atraem
+                                novos seguidores. Isso tende a aumentar a taxa de engajamento de forma orgânica.
+                            </li>
+                            <li class="ml-2">
+                                <span class="font-semibold">Monitore Feedback Qualitativo:</span>
+                                Leia minuciosamente os comentários e DMs para entender dúvidas ou sugestões dos
+                                seguidores. Responder pessoalmente fortalece a relação e incentiva novas interações.
+                            </li>
+                            <li class="ml-2">
+                                <span class="font-semibold">Avalie Frequency vs. Qualidade:</span>
+                                Se você postar com muita frequência, pode cansar – mesmo que 475 seguidores vejam várias
+                                vezes, talvez não sintam necessidade de interagir. Ajuste para um ritmo semanal
+                                equilibrado.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Fim dos Toggles -->
+            </div>
+
+            <!-- Card 3: Redes de Conversão -->
+            <div
+                class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+                <!-- Wrapper Superior -->
+                <div class="flex-grow">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Redes de Conversão</h2>
+                    <div class="grid grid-cols-3 gap-4 text-center mb-4">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span id="visitas-perfil" class="block text-3xl font-bold text-indigo-600">—</span>
+                            <span class="block text-sm text-gray-500 mt-1">
+                                Visitas ao Perfil<br><span class="text-xs">(≈ X % do alcance)</span>
+                            </span>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span id="cliques-site" class="block text-3xl font-bold text-green-600">—</span>
+                            <span class="block text-sm text-gray-500 mt-1">
+                                Cliques no Site<br><span class="text-xs">(≈ Y % do alcance)</span>
+                            </span>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <span id="cliques-contato" class="block text-3xl font-bold text-teal-600">—</span>
+                            <span class="block text-sm text-gray-500 mt-1">
+                                Cliques no Contato<br><span class="text-xs">(≈ Z % do alcance)</span>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-2">
+                        Há um funil “Alcance → Visitas → Cliques”. A queda de visitas para cliques (site + contato)
+                        sugere que
+                        <span id="taxa-conversao" class="font-semibold">—</span> % das visitas converteu em ação.
+                    </p>
+                </div>
+                <!-- Fim do Wrapper Superior -->
+
+                <!-- Toggles (parte inferior) -->
+                <div>
+                    <!-- Toggle “Insights e Observações” -->
+                    <button id="toggle-insights-redes"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-left text-gray-800 font-medium focus:outline-none mb-2">
+                        <span>Insights e Observações</span>
+                        <svg id="icon-insights-redes" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+                                   4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="insights-redes-content"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-indigo-600 p-4 hidden">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>
+                                Esse índice (“Alcance → Visitas → Cliques”) sugere que uma parte dos usuários
+                                não está convertendo ao clicar no link. Verifique se o link na bio está atualizado
+                                e se o CTA é suficientemente claro.
+                            </li>
+                            <li>
+                                Se quiser aumentar a taxa de conversão (>15 %), experimente usar botões de link
+                                direto nos Stories ou Reels, reduzindo etapas para o usuário.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Toggle “Recomendações” -->
+                    <button id="toggle-recs-redes"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Recomendações</span>
+                        <svg id="icon-recs-redes" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+                                   4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="recs-redes-content"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-teal-600 p-4 hidden">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>
+                                <span class="font-semibold">Otimizar “link na bio”</span> e botões de CTA para aumentar
+                                <em>toque link</em> por visita.
+                            </li>
+                            <li>
+                                <span class="font-semibold">Usar CTAs objetivas</span> (“Saiba mais”, “Agende sua
+                                avaliação”,
+                                “Garanta sua vaga”) para aumentar a taxa de clique.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Fim dos Toggles -->
+            </div>
+
+            <!-- Card 4: Métricas de Engajamento Detalhadas -->
+            <div
+                class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition-shadow flex flex-col justify-between h-full">
+                <!-- Wrapper Superior -->
+                <div class="flex-grow">
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-4">Métricas de Engajamento Detalhadas</h2>
+                    <ul class="space-y-4 mb-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <span class="h-3 w-3 bg-indigo-600 rounded-full inline-block"></span>
+                            </div>
+                            <div class="ml-3">
+                                <span class="font-semibold text-gray-800">Curtidas:</span>
+                                <span id="curtidas-detalhe" class="text-gray-600">—</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <span class="h-3 w-3 bg-blue-600 rounded-full inline-block"></span>
+                            </div>
+                            <div class="ml-3">
+                                <span class="font-semibold text-gray-800">Comentários:</span>
+                                <span id="comentarios-detalhe" class="text-gray-600">—</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <span class="h-3 w-3 bg-green-600 rounded-full inline-block"></span>
+                            </div>
+                            <div class="ml-3">
+                                <span class="font-semibold text-gray-800">Compartilhamentos:</span>
+                                <span id="compartilhamentos-detalhe" class="text-gray-600">—</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <span class="h-3 w-3 bg-pink-600 rounded-full inline-block"></span>
+                            </div>
+                            <div class="ml-3">
+                                <span class="font-semibold text-gray-800">Salvos:</span>
+                                <span id="salvos-detalhe" class="text-gray-600">—</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Fim do Wrapper Superior -->
+
+                <!-- Toggles (parte inferior) -->
+                <div>
+                    <!-- Toggle “Insights e Observações” -->
+                    <button id="toggle-insights-eng"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-left text-gray-800 font-medium focus:outline-none mb-2">
+                        <span>Insights e Observações</span>
+                        <svg id="icon-insights-eng" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+                                   4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="insights-eng-content"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-indigo-600 p-4 hidden">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>
+                                <span class="font-medium">Baixa taxa de Salvos (18):</span> indica que poucos usuários
+                                guardam conteúdos para ver depois. Avaliar se o formato ou o tema agrada o público.
+                            </li>
+                            <li>
+                                <span class="font-medium">Proporção Curtidas × Comentários:</span> 356 curtidas versus
+                                60 comentários sugere engajamento passivo; talvez falte CTA direto para incentivar
+                                comentários.
+                            </li>
+                            <li>
+                                <span class="font-medium">Compartilhamentos (161):</span> relativamente alto, sinaliza
+                                que o conteúdo gera valor para o público. Explorar mais formatos compartilháveis (Reels,
+                                carrosséis).
+                            </li>
+                            <li>
+                                <span class="font-medium">Comparar com benchmarks:</span> usando a base de 475
+                                seguidores, a taxa de engajamento geral (0,88 %) está abaixo de 1 – 3 %. Há espaço para
+                                ajustes em conteúdo interativo.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Toggle “Recomendações” -->
+                    <button id="toggle-recs-eng"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Recomendações</span>
+                        <svg id="icon-recs-eng" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+                                   4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="recs-eng-content"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-yellow-500 p-4 hidden">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li>
+                                <span class="font-medium">Adicione CTAs específicos:</span> ex.: “💬 Comente qual parte
+                                do treino você mais curtiu!” para puxar mais comentários.
+                            </li>
+                            <li>
+                                <span class="font-medium">Estimule Salvos:</span> finalize posts com “🔖 Salve este
+                                treino para repetir depois” para aumentar a métrica de salvos.
+                            </li>
+                            <li>
+                                <span class="font-medium">Varie formatos:</span> intercale imagens estáticas com
+                                carrosséis de dicas práticas e Reels curtos para elevar o engajamento geral.
+                            </li>
+                            <li>
+                                <span class="font-medium">Use perguntas diretas:</span> em cada post, inclua uma
+                                pergunta relacionada ao conteúdo (ex.: “Qual exercício do carrossel você quer ver no
+                                próximo vídeo?”).
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Fim dos Toggles -->
+            </div>
+        </section>
+
+        <!-- Card Combinado para Gráfico de Seguidores Diário/Semanal -->
+        <section class="bg-white rounded-xl shadow p-6 mb-8 hover:shadow-lg transition-shadow">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="text-xl font-semibold text-gray-800">Gráfico de Seguidores</h3>
+                <select id="selectPeriodoSeguidores"
+                    class="border border-gray-300 rounded-md p-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="diario">Diário</option>
+                    <option value="semanal">Semanal</option>
+                </select>
+            </div>
+            <canvas id="chartSeguidores"></canvas>
+            <!-- Toggle “Insights e Observações” -->
+            <button id="toggle-insights-seguidores" class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 
+               text-left text-gray-800 font-medium focus:outline-none mb-2">
+                <span>Insights e Observações</span>
+                <svg id="icon-insights-seguidores" xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 text-gray-600 transform transition-transform duration-200" viewBox="0 0 20 20"
+                    fill="currentColor">
+                    <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+             4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            <div id="insights-seguidores-content"
+                class="mt-2 bg-gray-50 rounded-lg border-l-4 border-green-600 p-4 hidden">
+                <ul class="list-disc list-inside text-gray-700 space-y-2">
+                    <li>
+                        <span class="font-medium">Tendência Geral:</span> o gráfico mostra aceleração constante de novos
+                        seguidores
+                        a partir da segunda quinzena de maio, atingindo um ponto alto em 29/Mai (27 seguidores) e
+                        mantendo
+                        patamares elevados até final do mês. Para sustentar esse crescimento, recomenda-se rastrear
+                        quais
+                        posts, parcerias ou anúncios estrelaram esse período e repetir estratégias semelhantes.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- === Card: Taxa de Crescimento de Seguidores === -->
+        <section class="bg-white rounded-xl shadow p-6 mb-8 hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Taxa de Crescimento de Seguidores</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- Seguidores Iniciais -->
+                <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-sm text-gray-500">Seguidores Iniciais</span>
+                    <span id="seg-inicial" class="mt-2 text-3xl font-bold text-indigo-600">—</span>
+                </div>
+
+                <!-- Seguidores Finais -->
+                <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-sm text-gray-500">Seguidores Finais</span>
+                    <span id="seg-final" class="mt-2 text-3xl font-bold text-green-600">—</span>
+                </div>
+
+                <!-- Crescimento Total (%) -->
+                <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-sm text-gray-500">Crescimento Total</span>
+                    <span id="growth-total" class="mt-2 text-3xl font-bold text-yellow-500">— %</span>
+                </div>
+
+                <!-- CAGR Diário (%) -->
+                <div class="bg-gray-50 rounded-lg p-4 flex flex-col items-center">
+                    <span class="text-sm text-gray-500">CAGR Diário</span>
+                    <span id="cagr-diario" class="mt-2 text-3xl font-bold text-pink-600">— %</span>
+                </div>
+            </div>
+
+            <!-- Média diária simples (apenas texto menor) -->
+            <p class="mt-4 text-gray-600">
+                Média diária de novos seguidores:
+                <span id="media-diaria" class="font-semibold text-gray-800">—</span> segs/dia
+            </p>
+        </section>
+
+        <!-- Gráficos Demográficos: Faixa Etária e Gênero na mesma linha -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <!-- Gráfico Demográfico Unificado: Faixa Etária (ocupa 2 colunas) -->
+            <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition-shadow flex flex-col md:col-span-2">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">
+                    Distribuição por Faixa Etária (Todos / Homens / Mulheres)
+                </h3>
+                <div class="w-full h-96">
+                    <canvas id="chartIdadeUnico" class="w-full h-full"></canvas>
+                </div>
+                <!-- Toggle “Insights e Observações” -->
+                <button id="toggle-insights-idade" class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-2 
+               text-left text-gray-800 font-medium focus:outline-none mb-2">
+                    <span>Insights e Observações</span>
+                    <svg id="icon-insights-idade" xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5 text-gray-600 transform transition-transform duration-200" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 
+             4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+
+                <div id="insights-idade-content"
+                    class="mt-2 bg-gray-50 rounded-lg border-l-4 border-indigo-600 p-4 hidden">
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        <li>
+                            <span class="font-medium">Predominância geral (25–34 e 35–44):</span>
+                            aproximadamente 37 % dos seguidores estão entre 25–34 anos e 36,7 % entre 35–44 anos.
+                            Essas duas faixas representam quase 74 % do público, sinalizando foco principal de conteúdo
+                            para essa base adulta jovem.
+                        </li>
+                        <li>
+                            <span class="font-medium">Homens vs. Mulheres (25–34 e 35–44):</span>
+                            na faixa 25–34, 40,2 % são homens contra 34,2 % mulheres; em 35–44, 39,8 % são homens e
+                            30,9 % mulheres.
+                            Ou seja, homens têm participação cerca de 5–8 pontos percentuais maior nessas duas faixas
+                            centrais.
+                        </li>
+                        <li>
+                            <span class="font-medium">Maior participação feminina (45–54):</span>
+                            22,3 % dos seguidores são mulheres nessa faixa, enquanto apenas 9,9 % são homens.
+                            Isso indica que, embora o público geral concentre-se em 25–44, a audiência de 45–54 é
+                            significativamente feminina.
+                        </li>
+                        <li>
+                            <span class="font-medium">Público jovem muito reduzido (13–24):</span>
+                            em 13–17 anos praticamente 0 % (todos e homens ~0 %, mulheres ~0 %), e em 18–24 apenas 4,4 %
+                            (todos).
+                            Ou seja, há muito pouco engajamento entre menores de 25 anos — pode não valer a pena
+                            direcionar esforços focados nesse público.
+                        </li>
+                        <li>
+                            <span class="font-medium">Faixa 55–64 mantém alguma relevância:</span>
+                            5,8 % do total de seguidores estão entre 55–64, sendo 5,3 % homens e 7,8 % mulheres.
+                            Embora não seja um público majoritário, é um segmento a considerar para conteúdos
+                            específicos (bem-estar, rotina).
+                        </li>
+                        <li>
+                            <span class="font-medium">Muito pouco público sênior (65+):</span>
+                            apenas 0,4 % de todos e 0,6 % de mulheres, praticamente irrelevante.
+                            Indicativo de que iniciativas para 65+ dificilmente terão retorno significativo.
+                        </li>
+                        <li>
+                            <span class="font-medium">Tendência geral de gênero:</span>
+                            os homens superam ligeiramente as mulheres em quase todas as faixas centrais, mas as
+                            mulheres assumem vantagem em 45–54 e em 55–64.
+                            Sugerimos criar algumas postagens com apelo maior ao público feminino de meia-idade (ex.:
+                            estilos de treino mais acessíveis, bem-estar) sem negligenciar o público masculino jovem
+                            adulto.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Gráfico Demográfico: Gênero Total (Pizza) (ocupa 1 coluna) -->
+            <div class="bg-white rounded-xl shadow p-6 hover:shadow-lg transition-shadow flex flex-col md:col-span-1">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Distribuição por Gênero</h3>
+                <div class="w-full h-80">
+                    <canvas id="chartGeneroTotal" class="w-full h-full"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== CARD 1: Posts Estáticos & Carrosséis (CARROSSEL HORIZONTAL) ========== -->
+        <section id="card-posts-estaticos-carrosseis"
+            class="bg-white rounded-xl shadow p-6 mb-8 hover:shadow-lg transition-shadow relative">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Posts Estáticos &amp; Carrosséis</h3>
+
+            <!-- Botão “Prev” (esquerda) -->
+            <button id="ec-prev-btn"
+                class="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-gray-700 rounded-full p-2 shadow transition-colors"
+                aria-label="Anterior">
+                ◀
+            </button>
+
+            <!-- Container que esconde o overflow horizontal -->
+            <div id="ec-carousel-container" class="overflow-hidden">
+                <!-- Wrapper flexível: nesta DIV aplicaremos o scrollLeft via JS -->
+                <div id="ec-carousel-inner" class="flex space-x-6 pb-2">
+                    <!-- AQUI serão inseridos via JS os cards com class="min-w-[28rem] ..." -->
+                </div>
+            </div>
+
+            <!-- Botão “Next” (direita) -->
+            <button id="ec-next-btn"
+                class="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-gray-700 rounded-full p-2 shadow transition-colors"
+                aria-label="Próximo">
+                ▶
+            </button>
+        </section>
+
+        <!-- ========== CARD GRID 2: Reels ========== -->
+        <section id="card-posts-reels" class="bg-white rounded-xl shadow p-6 mb-8 hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Posts Reels</h3>
+            <!-- Grid container para Reels -->
+            <div id="posts-reels-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Aqui cada card de Reel será inserido via JS -->
+            </div>
+        </section>
+
+        <!-- ================================================
+  CARD: Principais Insights e Recomendações Estratégicas
+  ================================================ -->
+        <section id="card-insights-recs" class="bg-white rounded-xl shadow p-6 mb-8 hover:shadow-lg transition-shadow">
+            <h3 class="text-2xl font-semibold text-gray-800 mb-4">Principais Insights e Recomendações Estratégicas</h3>
+
+            <!-- Container de seções colapsáveis -->
+            <div class="space-y-4">
+
+                <!-- 1) Focar em Reels como Carro-Chefe -->
+                <div>
+                    <button id="toggle-reels"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Focar em Reels como Carro-Chefe</span>
+                        <svg id="icon-reels" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="content-reels" class="mt-2 bg-gray-50 rounded-lg border-l-4 border-blue-600 p-4 hidden">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>
+                                A performance dos Reels é consistentemente superior. Sugerimos um cronograma mínimo de
+                                <span class="font-semibold">3 Reels por semana</span>, intercalando temas:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>Suplementação</li>
+                                    <li>Nutrição</li>
+                                    <li>Recuperação</li>
+                                    <li>Bastidores da academia</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Use <span class="font-semibold">1–2 posts estáticos/carrosséis semanais</span> para
+                                conteúdo detalhado, como:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>“5 exercícios para hipertrofia com técnica”</li>
+                                    <li>“Infográfico: Benefícios da crioterapia”</li>
+                                </ul>
+                                Esses formatos geram salvamentos ao longo do tempo.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2) Otimizar CTAs para Aumentar Conversão -->
+                <div>
+                    <button id="toggle-ctas"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Otimizar CTAs para Aumentar Conversão</span>
+                        <svg id="icon-ctas" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="content-ctas" class="mt-2 bg-gray-50 rounded-lg border-l-4 border-green-600 p-4 hidden">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>
+                                Nos <span class="font-semibold">Reels</span>, inserir chamadas claras como:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>“Clique no link na bio para agendar aula experimental”</li>
+                                    <li>“Comente qual seu maior desafio no treino”</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Nos <span class="font-semibold">carrosséis</span>, usar CTAs como:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>“Deslize e salve este carrossel se achar útil”</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Testar <span class="font-semibold">links diretos nos Stories</span> para campanhas
+                                pontuais
+                                (novas turmas, eventos, lives).
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3) Aproveitar o Potencial de Salvamentos e Compartilhamentos -->
+                <div>
+                    <button id="toggle-salvcomp"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Aproveitar o Potencial de Salvamentos e Compartilhamentos</span>
+                        <svg id="icon-salvcomp" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="content-salvcomp"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-yellow-600 p-4 hidden">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>
+                                Para <span class="font-semibold">salvamentos</span>, criar conteúdos práticos com
+                                elementos visuais marcantes:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>“Roteiros de treino em casa em 3 passos”</li>
+                                    <li>“Demonstrações rápidas de técnica”</li>
+                                    <li>“Truques de recuperação pós-treino”</li>
+                                </ul>
+                                Use legendas/etapas numeradas para incentivar o salvamento.
+                            </li>
+                            <li>
+                                Para <span class="font-semibold">compartilhamentos</span>, explorar temas
+                                curiosos/inspiradores:
+                                <blockquote class="border-l-4 border-purple-400 pl-3 italic text-gray-600">
+                                    “Você sabia que…?” + “Compartilhe com o amigo que precisa ver isso”
+                                </blockquote>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 4) Ajustar a Linguagem ao Público Principal (Homens 25–44 anos) -->
+                <div>
+                    <button id="toggle-linguagem"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Ajustar a Linguagem ao Público Principal (Homens 25–44 anos)</span>
+                        <svg id="icon-linguagem" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="content-linguagem"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-pink-600 p-4 hidden">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>
+                                Priorizar temas de performance e “training hard”:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>“Como colocar 5 kg de músculo em 2 meses”</li>
+                                    <li>“Rotina de treino vulto para quem trabalha o dia todo”</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Incluir pontualmente conteúdo voltado para mulheres para equilibrar a base, mas sem
+                                dispersar a estratégia principal.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5) Melhorar a Qualidade das Legendas e Elementos Visuais -->
+                <div>
+                    <button id="toggle-legendas"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Melhorar a Qualidade das Legendas e Elementos Visuais</span>
+                        <svg id="icon-legendas" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="content-legendas" class="mt-2 bg-gray-50 rounded-lg border-l-4 border-red-600 p-4 hidden">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>
+                                Para posts estáticos, reforçar identidade visual minimalista/premium:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>Texto preciso, tipografia sóbria, espaçamento adequado</li>
+                                    <li>Legendas alinhadas à persona: tom confiante, linguagem direta, ressaltando
+                                        exclusividade:
+                                        <span class="italic">“Treine com máxima performance em instalações de
+                                            ponta”</span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Nos Reels, garantir:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>Boa iluminação e áudio claro</li>
+                                    <li>Uso de legendas e sobreposições textuais (usuários assistem sem som)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 6) Planejar Calendário Editorial Baseado em Picos de Crescimento -->
+                <div>
+                    <button id="toggle-calendario"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Planejar Calendário Editorial Baseado em Picos de Crescimento</span>
+                        <svg id="icon-calendario" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="content-calendario"
+                        class="mt-2 bg-gray-50 rounded-lg border-l-4 border-indigo-600 p-4 hidden">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>
+                                Nos dias de maior incremento de seguidores, identificar se houve:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>Lançamento de oferta</li>
+                                    <li>Evento ou parceria</li>
+                                    <li>Formato de conteúdo específico</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Repetir ou adaptar o formato que gerou picos para as próximas semanas.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 7) Monitorar Métricas de Conversão Específicas -->
+                <div>
+                    <button id="toggle-metricas"
+                        class="w-full flex justify-between items-center bg-gray-100 hover:bg-gray-200 rounded-lg px-4 py-3 text-left text-gray-800 font-medium focus:outline-none">
+                        <span>Monitorar Métricas de Conversão Específicas</span>
+                        <svg id="icon-metricas" xmlns="http://www.w3.org/2000/svg"
+                            class="h-5 w-5 text-gray-600 transform transition-transform duration-200"
+                            viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 3a1 1 0 01.7.29l6 6a1 1 0 01-1.4 1.42L10 5.42 4.7 10.71a1 1 0 11-1.4-1.42l6-6A1 1 0 0110 3z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    <div id="content-metricas" class="mt-2 bg-gray-50 rounded-lg border-l-4 border-teal-600 p-4 hidden">
+                        <ul class="list-disc list-inside space-y-2 text-gray-700">
+                            <li>
+                                Elevar a proporção de seguidores que clicam no link (atualmente ~8 % dos que visitam
+                                perfil)
+                                por meio de:
+                                <ul class="list-inside list-[circle] ml-4 mt-1 space-y-1 text-gray-600">
+                                    <li>Ofertas limitadas (“Só hoje: agende avaliação gratuita”)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Acompanhar quantos cliques no site geram cadastro ou call-to-action (usar links UTM e
+                                páginas de destino específicas).
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Rodapé -->
+        <footer class="text-center text-gray-500 text-sm mt-12">
+            &copy; 2025 Sua Empresa de Marketing. Todos os direitos reservados.
+        </footer>
+    </main>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>
